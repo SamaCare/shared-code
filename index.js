@@ -27,7 +27,7 @@ const ICDRegex = /([A-TV-Z][0-9][A-Z0-9](\.?[A-Z0-9]{0,4})?)/;
 
 const getValue = (config, id, samaTypes) => {
   // first check for custom fields
-  const customField = _.find(CONFIG.CONSTANTS.CUSTOM_FIELDS, custom => (_.includes(samaTypes, custom.key)));
+  const customField = _.find(CUSTOM_FIELDS, custom => (_.includes(samaTypes, custom.key)));
   if (_.isNil(_.get(config, _.get(customField, 'key'))) && _.get(customField, 'value')) {
     // if the custom field is not overridden by the config and it has a value then use it
     return _.isFunction(customField.value) ? customField.value() : customField.value;
